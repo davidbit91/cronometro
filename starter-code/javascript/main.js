@@ -8,6 +8,9 @@ let secDec      = document.getElementById('secDec');
 let secUni      = document.getElementById('secUni');
 let milDec      = document.getElementById('milDec');
 let milUni      = document.getElementById('milUni');
+let splits = document.getElementById('splits');
+let arr = [];
+
 
 
 function printTime() {
@@ -91,6 +94,25 @@ btnLeft.addEventListener('click', function (e) {
 
 // Reset/Split Button
 btnRight.addEventListener('click', function () {
+
+    if(btnRight.textContent == "SPLIT"){
+        let m = chronometer.minutes;
+        let s = chronometer.seconds;
+
+        let time = `${m}:${s}`;
+        arr.push(time);
+        splits.innerHTML+= `<li>${arr[arr.length-1]}</li>`;
+    }
+
+    if(btnRight.textContent == "RESET"){
+       arr = [];
+       splits.innerHTML = "";
+       chronometer.minutes= "00";
+       chronometer.seconds="00";
+       chronometer.currentTime=0;
+       printTime();
+    }
+
 
     
 });

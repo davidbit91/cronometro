@@ -37,6 +37,7 @@ class Chronometer {
 
     setMilliseconds() {
         
+        
     }
 
     stopClick() {
